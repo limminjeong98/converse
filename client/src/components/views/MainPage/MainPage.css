@@ -1,0 +1,50 @@
+body{
+    height:100%;
+    width:100%;
+    background-color: #F0EDCC;
+}
+.lion{
+    width:400px;
+    height:400px;
+    display:block;
+    margin:20px auto;
+    transform: translateX(-8%);
+}
+.lion path{
+}
+.btn{
+    display:block;
+    border:2px solid #02343F;
+    color:#02343F ;
+    margin:0 auto 15px;
+    font-weight: 700;
+}
+.btn:hover{
+    border:none;
+    background-color: #02343F;
+    color:#F0EDCC ;
+}
+.hair, .head, .eye{
+    animation:hello 3s linear infinite;
+}
+.cloth{
+    animation:change 8s linear infinite;
+}
+@keyframes hello{
+    0%{transform: rotateX(0deg);}
+    50%{transform: rotateX(30deg);}
+    100%{transform: rotateX(0deg);}
+}
+@keyframes change{
+    0%{fill: red;}
+    33%{fill:green;}
+    66%{fill: blue;}
+}
+
+
+@media (max-width: 767px) {
+    .lion{
+        width:300px;
+        height:300px;
+    }
+}
