@@ -3,7 +3,7 @@ const Schema = mongoose.Schema;
 
 const productSchema = mongoose.Schema({
     writer: {
-        type: Schema.Types.ObjectId,
+        type:Schema.Types.ObjectId,
         ref: 'User'
     },
     title: {
@@ -17,7 +17,19 @@ const productSchema = mongoose.Schema({
         type: Number,
         default: 0
     },
+    category: {
+        type: Number,
+        default: 0
+    },
+    sizes: {
+        type: Array,
+        default: []
+    },
     images: {
+        type: Array,
+        default: []
+    },
+    colors: {
         type: Array,
         default: []
     },
@@ -26,29 +38,24 @@ const productSchema = mongoose.Schema({
         maxlength: 100,
         default: 0
     },
-
-    continents: {
-        type: Number,
-        default: 1
-    },
-
     views: {
         type: Number,
         default: 0
+    },
+    tokenExp: {
+        type: Number
     }
 }, { timestamps: true })
 
 productSchema.index({
-    title: 'text',
-    description: 'text'
-}, {
-    weights: {
+    title:'text',
+    description:'text'
+},{
+    weights:{
         title: 5,
-        description: 1
+        description: 3
     }
 })
-
-
 const Product = mongoose.model('Product', productSchema);
 
 module.exports = { Product }
