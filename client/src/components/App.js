@@ -11,6 +11,8 @@ import UploadProductPage from "./views/UploadProductPage/UploadProductPage.js";
 import DetailProductPage from "./views/DetailProductPage/DetailProductPage";
 import CartPage from './views/CartPage/CartPage';
 import HistoryPage from './views/HistoryPage/HistoryPage';
+import MainPage from './views/MainPage/MainPage';
+
 
 //null   Anyone Can go inside
 //true   only logged in user can go inside
@@ -22,7 +24,8 @@ function App() {
       <NavBar />
       <div style={{ paddingTop: '69px', minHeight: 'calc(100vh - 80px)' }}>
         <Switch>
-          <Route exact path="/" component={Auth(LandingPage, null)} />
+          <Route exact path="/" component={Auth(MainPage, null)} />
+          <Route exact path="/sale" component={Auth(LandingPage, null)} />
           <Route exact path="/login" component={Auth(LoginPage, false)} />
           <Route exact path="/register" component={Auth(RegisterPage, false)} />
           <Route exact path="/product/upload" component={Auth(UploadProductPage, true)} />

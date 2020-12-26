@@ -5,31 +5,46 @@
   border-bottom: solid 1px #e8e8e8;
   overflow: auto;
   box-shadow: 0 0 30px #f3f1f1;
-  background-color: white;
+  background-color: #02343F;
 }
 
 .menu__logo {
   width: 150px;
   float: left;
+
 }
 
 .menu__logo a {
   display: inline-block;
   font-size: 20px;
   padding: 19px 20px;
-}
+  color:#F0EDCC;
 
+}
+.modified-item:hover {
+  background-color: #02343F ;
+  border-bottom: 2px solid #02343F !important;
+  color: red !important;
+}
 .menu__container .ant-menu-item {
   padding: 0px 5px;
+  background-color: #02343F;
 }
-
+.menu__container .ant-menu-submenu{
+  padding: 0px 5px;
+  background-color: #02343F;
+}
 .menu__container .ant-menu-submenu-title {
   padding: 10px 20px;
+  color:#F0EDCC;
+
 }
 
 .menu__container .ant-menu-item a,
 .menu__container .ant-menu-submenu-title a {
   padding: 10px 15px;
+  color:#F0EDCC;
+
 }
 
 .menu__container .ant-menu-horizontal {
@@ -49,18 +64,79 @@
   height: 32px;
   padding: 6px;
   margin-top: 8px;
-  display: none !important; /* use of important to overwrite ant-btn */
-  background: #3e91f7;
+  display: none !important; 
+  /* use of important to overwrite ant-btn */
 }
+.ant-btn-primary{
+  background-color: #F0EDCC;
+  color:#02343F;
+  border:none;
+}
+.ant-btn-primary:hover{
+  background-color: #F0EDCC;
+  color:#02343F;
+}
+
+
 
 .menu_drawer .ant-drawer-body {
   padding: 0 !important;
+}
+.subItem{
+  color:#02343F !important;
+  background-color: white !important;
+}
+.subItem:hover{
+  color: #F0EDCC!important;
+  background-color:#02343F !important;
+}
+.subItem a{
+  color:#02343F !important;
+  background-color: white !important;
+ 
+}
+.ant-menu-horizontal{
+  background-color:#02343F !important;
+}
+
+.btnBadge{
+  margin-right: 10px;
+}
+
+.sale a:hover, 
+.newArrivals a:hover,
+.Logout a:hover,
+.history a:hover,
+.upload a:hover
+{
+  color: #F0EDCC!important;
+}
+
+.sale:hover,
+.newArrivals:hover,
+.Logout:hover,
+.history:hover,
+.upload:hover
+{
+  border-bottom: 2px solid #F0EDCC !important;
 }
 
 /* align header of Drawer with header of page */
 .menu_drawer .ant-drawer-header {
   padding: 14px 24px !important;
 }
+.ant-menu-item-active{
+  color:#02343F;
+  background-color:#02343F !important;
+  border-bottom: none !important;
+  
+  
+}
+.ant-menu-submenu-active {
+  color:#02343F;
+  border-bottom: 2px solid #F0EDCC !important;
+}
+
 
 @media (max-width: 767px) {
   .menu__mobile-button {
@@ -74,6 +150,8 @@
 
   .menu__logo a {
     margin-left: -20px;
+    color:#F0EDCC;
+
   }
 
   .menu__container .ant-menu-item,

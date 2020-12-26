@@ -9,6 +9,8 @@ body{
     display:block;
     margin:20px auto;
     transform: translateX(-8%);
+    fill:#02343F;
+    
 }
 .lion path{
 }
@@ -16,8 +18,9 @@ body{
     display:block;
     border:2px solid #02343F;
     color:#02343F ;
-    margin:0 auto 15px;
+    margin:15px auto 0;
     font-weight: 700;
+    transform: translateX(-10px);
 }
 .btn:hover{
     border:none;
@@ -25,7 +28,7 @@ body{
     color:#F0EDCC ;
 }
 .hair, .head, .eye{
-    animation:hello 3s linear infinite;
+    animation:hello 5s linear infinite;
 }
 .cloth{
     animation:change 8s linear infinite;
@@ -35,13 +38,10 @@ body{
     50%{transform: rotateX(30deg);}
     100%{transform: rotateX(0deg);}
 }
-@keyframes change{
-    0%{fill: red;}
-    33%{fill:green;}
-    66%{fill: blue;}
-}
-
-
+/* @keyframes change{
+    0%{fill: #F0EDCC;}
+    50%{fill:#02343F;}
+} */
 @media (max-width: 767px) {
     .lion{
         width:300px;

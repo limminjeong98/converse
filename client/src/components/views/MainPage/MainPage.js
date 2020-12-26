@@ -17,11 +17,12 @@ const MainPage = () => {
     }
     return (
         <div>
-            <Lion></Lion>
             <Button className="btn" type="primary" shape="round" size="large"><a href="/">
             Go to Online Shop
             </a>
             </Button>
+            <Lion></Lion>
+
         </div>
     );
 };

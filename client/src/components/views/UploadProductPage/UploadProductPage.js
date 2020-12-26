@@ -99,32 +99,6 @@ function UploadProductPage(props) {
             title: Title,
             description: Description,
             price: Price,
-<<<<<<< HEAD
-            images: Images,
-            continents: Continent
-        }
-
-        Axios.post('/api/product', body)
-            .then(response => {
-                if (response.data.success) {
-                    alert('상품 업로드에 성공 했습니다.')
-                    props.history.push('/')
-                } else {
-                    alert('상품 업로드에 실패 했습니다.')
-                }
-            })
-    }
-
-
-    return (
-        <div style={{ maxWidth: '700px', margin: '2rem auto' }}>
-            <div style={{ textAlign: 'center', marginBottom: '2rem' }}>
-                <h2> 여행 상품 업로드</h2>
-            </div>
-
-            <Form onSubmit={submitHandler}>
-                {/* DropZone */}
-=======
             category: Category,
             sizes: Sizes,
             images: Images,
@@ -152,17 +126,12 @@ function UploadProductPage(props) {
             <Form onSubmit={submitHandler}>
                 {/* DropZone */}
 
->>>>>>> a60bc97e8de03e84e7b052e780b2dd2a7eb7f62e
                 <FileUpload refreshFunction={updateImages} />
 
                 <br />
                 <br />
                 <label>이름</label>
-<<<<<<< HEAD
-                <Input onChange={titleChangeHandler} value={Title} />
-=======
                 <Input onChange={titleChangeHandler} value={Title}/>
->>>>>>> a60bc97e8de03e84e7b052e780b2dd2a7eb7f62e
                 <br />
                 <br />
                 <label>설명</label>
@@ -170,14 +139,6 @@ function UploadProductPage(props) {
                 <br />
                 <br />
                 <label>가격($)</label>
-<<<<<<< HEAD
-                <Input type="number" onChange={priceChangeHandler} value={Price} />
-                <br />
-                <br />
-                <select onChange={continentChangeHandler} value={Continent}>
-                    {Continents.map(item => (
-                        <option key={item.key} value={item.key}> {item.value}</option>
-=======
                 <Input type="number" onChange={priceChangeHandler} value={Price}/>
                 <br />
                 <br />
@@ -185,19 +146,10 @@ function UploadProductPage(props) {
                     {/* <option></option> */}
                     {Categories.map(item => (
                         <option key={item.key} value={Category}>{item.value}</option>
->>>>>>> a60bc97e8de03e84e7b052e780b2dd2a7eb7f62e
                     ))}
                 </select>
                 <br />
                 <br />
-<<<<<<< HEAD
-                <button type="submit">
-                    확인
-                </button>
-            </Form>
-
-
-=======
 
                 <label>사이즈</label>
                 
@@ -220,7 +172,6 @@ function UploadProductPage(props) {
 
 
             </Form>
->>>>>>> a60bc97e8de03e84e7b052e780b2dd2a7eb7f62e
         </div>
     )
 }
