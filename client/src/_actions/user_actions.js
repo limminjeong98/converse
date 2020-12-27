@@ -10,6 +10,7 @@ import {
     ON_SUCCESS_BUY
 } from './types';
 import { USER_SERVER } from '../components/Config.js';
+import SizeItem from '../components/utils/SizeItem';
 
 export function registerUser(dataToSubmit) {
     const request = axios.post(`${USER_SERVER}/register`, dataToSubmit)
@@ -52,9 +53,11 @@ export function logoutUser() {
 }
 
 
-export function addToCart(id) {
+export function addToCart(id, selectedSize, selectedColor) {
     let body = {
-        productId: id
+        productId: id,
+        size: selectedSize,
+        color: selectedColor
     }
     const request = axios.post(`${USER_SERVER}/addToCart`, body)
         .then(response => response.data);
@@ -77,6 +80,9 @@ export function getCartItems(cartItems, userCart) {
                 response.data.forEach((productDetail, index) => {
                     if (cartItem.id === productDetail._id) {
                         response.data[index].quantity = cartItem.quantity
+                        response.data[index].size = cartItem.size
+                        response.data[index].color = cartItem.color
+
                     }
                 })
             })

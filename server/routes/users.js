@@ -110,6 +110,8 @@ router.post("/addToCart", auth, (req, res) => {
                             cart: {
                                 id: req.body.productId,
                                 quantity: 1,
+                                size: req.body.size, 
+                                color: req.body.color,
                                 date: Date.now()
                             }
                         }
