@@ -8,8 +8,8 @@ function DetailProductPage(props) {
 
     const productId = props.match.params.productId
 
-    const [Product, setProduct] = useState({})
-
+    const [Product, setProduct] = useState({});
+    const {Colors} = Product;
     useEffect(() => {
         axios.get(`/api/product/products_by_id?id=${productId}&type=single`)
             .then(response => {
@@ -17,8 +17,7 @@ function DetailProductPage(props) {
             })
             .catch(err => alert(err))
     }, [])
-
-
+    // const ColorsList = Colors.map((color) => {color})
 
     return (
         <div style={{ width: '100%', padding: '3rem 4rem' }}>
@@ -26,23 +25,9 @@ function DetailProductPage(props) {
             <div style={{ display: 'flex', justifyContent: 'center' }}>
                 <h1>{Product.title}</h1>
             </div>
-
             <br />
-
-            <Row gutter={[16, 16]} >
-                <Col lg={12} sm={24}>
-                    {/* ProductImage */}
                     <ProductImage detail={Product} />
-                </Col>
-                <Col lg={12} sm={24}>
-                    {/* ProductInfo */}
                     <ProductInfo detail={Product} />
-                </Col>
-            </Row>
-
-
-
-
 
         </div>
     )

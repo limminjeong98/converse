@@ -74,7 +74,7 @@ function LandingPage() {
             >
                 <Meta
                     title={product.title}
-                    description={`$${product.price}`}
+                    description={`${product.price}원`}
                 />
             </Card>
         </Col>
@@ -137,13 +137,12 @@ function LandingPage() {
 
     }
 
-
-
     return (
-        <div style={{ width: '75%', margin: '3rem auto' }}>
-
+        <div style={{ width: '75%', margin: '2rem auto' }}>
             <div style={{ textAlign: 'center' }}>
-                <h2>Let's Travel Anywhere <Icon type="rocket" /> </h2>
+                <h2 style={{margin:'-10px 0px'}}>
+                    " Basically when you wear it, it creates an attitude. "</h2><br/>
+                <h3 style={{marginBottom:'30px'}}> - Demna Gvasalia - </h3>
             </div>
 
             {/* Filter */}
@@ -151,18 +150,13 @@ function LandingPage() {
             <Row gutter={[16, 16]}>
                 <Col lg={12} xs={24}>
                     {/* CheckBox */}
-                    <Checkbox list={continents} handleFilters={filters => handleFilters(filters, "continents")} />
+                    <Checkbox list={continents} handleFilters={filters => handleFilters(filters, "Category")} />
                 </Col>
                 <Col lg={12} xs={24}>
                     {/* RadioBox */}
                     <Radiobox list={price} handleFilters={filters => handleFilters(filters, "price")} />
                 </Col>
             </Row>
-
-
-
-
-
             {/* Search */}
 
             <div style={{ display: 'flex', justifyContent: 'flex-end', margin: '1rem auto' }}>

@@ -1,66 +1,53 @@
 const continents = [
     {
         "_id": 1,
-        "name": "Africa"
+        "name": "Outer"
     },
     {
         "_id": 2,
-        "name": "Europe"
+        "name": "Top"
     },
     {
         "_id": 3,
-        "name": "Asia"
+        "name": "Bottom"
     },
     {
         "_id": 4,
-        "name": "North America"
+        "name": "Shoes"
     },
     {
         "_id": 5,
-        "name": "South America"
+        "name": "Bag"
     },
-    {
-        "_id": 6,
-        "name": "Australia"
-    },
-    {
-        "_id": 7,
-        "name": "Antarctica"
-    }
 
 ]
 
 const price = [
     {
         "_id": 0,
-        "name": "Any",
+        "name": "All",
         "array": []
     },
     {
         "_id": 1,
-        "name": "$0 to $199",
-        "array": [0, 199]
+        "name": "10000 ~ 20000",
+        "array": [10000, 19999]
     },
     {
         "_id": 2,
-        "name": "$200 to $249",
-        "array": [200, 249]
+        "name": "20000 ~ 50000",
+        "array": [20000, 49999]
     },
     {
         "_id": 3,
-        "name": "$250 to $279",
-        "array": [250, 279]
+        "name": "50000 ~ 100000",
+        "array": [50000, 99999]
     },
     {
         "_id": 4,
-        "name": "$280 to $299",
-        "array": [280, 299]
+        "name": "More than 100000",
+        "array": [100000, 150000000]
     },
-    {
-        "_id": 5,
-        "name": "More than $300",
-        "array": [300, 1500000]
-    }
 ]
 
 

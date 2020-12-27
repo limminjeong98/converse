@@ -86,14 +86,14 @@
   color:#02343F !important;
   background-color: white !important;
 }
-.subItem:hover{
-  color: #F0EDCC!important;
-  background-color:#02343F !important;
-}
+
 .subItem a{
   color:#02343F !important;
   background-color: white !important;
- 
+}
+.subItem:hover{
+  color:#02343F !important;
+  background-color:white !important;
 }
 .ant-menu-horizontal{
   background-color:#02343F !important;

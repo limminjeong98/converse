@@ -20,17 +20,17 @@ function LeftMenu(props) {
     </Menu.Item>
     <SubMenu title="Women">
         <Menu.Item className="subItem" key="setting:1">Outer</Menu.Item>
-        <Menu.Item className="subItem" key="setting:2">T-shits</Menu.Item>
-        <Menu.Item className="subItem" key="setting:3">Dress</Menu.Item>
-        <Menu.Item className="subItem" key="setting:4">Bag</Menu.Item>
-        <Menu.Item className="subItem" key="setting:5">Accessary</Menu.Item>
+        <Menu.Item className="subItem" key="setting:2">Top</Menu.Item>
+        <Menu.Item className="subItem" key="setting:3">Bottom</Menu.Item>
+        <Menu.Item className="subItem" key="setting:4">Shoes</Menu.Item>
+        <Menu.Item className="subItem" key="setting:5">Bag</Menu.Item>
     </SubMenu>
     <SubMenu title="Men">
-        <Menu.Item className="subItem" key="setting:1">Coat</Menu.Item>
-        <Menu.Item className="subItem" key="setting:2">Jacket</Menu.Item>
-        <Menu.Item className="subItem" key="setting:3">Pants</Menu.Item>
-        <Menu.Item className="subItem" key="setting:4">Bag</Menu.Item>
-        <Menu.Item className="subItem" key="setting:5">Accessary</Menu.Item>
+        <Menu.Item className="subItem" key="setting:1">Outer</Menu.Item>
+        <Menu.Item className="subItem" key="setting:2">Top</Menu.Item>
+        <Menu.Item className="subItem" key="setting:3">Bottom</Menu.Item>
+        <Menu.Item className="subItem" key="setting:4">Shoes</Menu.Item>
+        <Menu.Item className="subItem" key="setting:5">Bag</Menu.Item>
     </SubMenu>
   </Menu>
   )
