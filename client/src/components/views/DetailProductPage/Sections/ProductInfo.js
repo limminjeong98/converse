@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import { Button, Select} from 'antd';
+import { Button, Select } from 'antd';
 import { useDispatch } from 'react-redux';
 import { addToCart } from '../../../../_actions/user_actions';
 const { Option } = Select;
@@ -13,22 +13,49 @@ function ProductInfo(props) {
     const [Size, setSize] = useState('')
     const [Color, setColor] = useState('')
 
+    const SizechangeHandler = value => {
+        
+        setSize(value.toString())
+        
+        
+    }
 
-    function handleChange(e) {
-        setSize(String(e));
-        console.log(e)
-      }
+    const ColorchangeHandler = value => {
+        
+        setColor(value.toString())
+        
+        
+    }
+
+    const sizeChangeHandler = (event) => {
+        // event.preventDefault();
+        // event.stopPropagation();
+        setSize(event.currentTarget.value.toString())
+        // event.stopImmediatePropagation();
+    }
+
+    const colorChangeHandler = (event) => {
+        setColor(event.currentTarget.value.toString())
+    }
 
     const SelectSize = () => {
         if(props.detail.price != null){
+            
             return (
                 <div>
-                <Select defaultValue={sizes[0]} onChange={handleChange}>
+                    {/* {sizes[0]} */}
+                <Select defaultValue="SIZE" style={{ width: 120 }} name="size" onChange={SizechangeHandler}>    
+                {/* <select name="size" onChange={sizeChangeHandler}> */}
                 {Object.values(sizes).map(
+                    item=>
+                    <option value={item}>{item}</option>
+                )}
+                {/* {Object.values(sizes).map(
                     (item, index)=> (
                         <Option value={item} key={index}>{item}</Option>
                     )
-                )}
+                )} */}
+                {/* </select> */}
                 </Select>
                 </div> 
             )
@@ -42,14 +69,23 @@ function ProductInfo(props) {
 
     const SelectColor = () => {
         if(props.detail.price != null){
+            
+            
             return (
                 <div>
-                <Select defaultValue={colors[0]} onChange={handleChange}>
+                    {/* defaultValue={colors[0]} */}
+                <Select defaultValue="COLOR" style={{ width: 120 }} name="color" onChange={ColorchangeHandler}> 
+                {/* <select name="color" onChange={colorChangeHandler}> */}
                 {Object.values(colors).map(
+                    item=>
+                    <option value={item}>{item}</option>
+                )}
+                {/* {Object.values(colors).map(
                     (item, index)=> (
                         <Option value={item} key={index}>{item}</Option>
                     )
-                )}
+                )} */}
+                {/* </select> */}
                 </Select>
                 </div> 
             )

@@ -71,21 +71,60 @@ export function addToCart(id, selectedSize, selectedColor) {
 
 export function getCartItems(cartItems, userCart) {
 
-    const request = axios.get(`/api/product/products_by_id?id=${cartItems}&type=array`)
+    // const request = axios.get(`/api/product/products_by_id?id=${cartItems}&type=array`)
+    
+    const request = axios.get(`/api/product/products_by_id_cart?id=${cartItems}&type=array`)
         .then(response => {
             // CartItem들에 해당하는 정보들을  
             // Product Collection에서 가져온후에 
             // Quantity 정보를 넣어 준다.
-            userCart.forEach(cartItem => {
-                response.data.forEach((productDetail, index) => {
-                    if (cartItem.id === productDetail._id) {
-                        response.data[index].quantity = cartItem.quantity
-                        response.data[index].size = cartItem.size
-                        response.data[index].color = cartItem.color
-
+            // console.log('userCart',userCart) => 5
+            // console.log('cartItems',cartItems) => 5
+            // console.log('response.data',response.data) => 3
+            // console.log('cart response.data',response.data)
+            // console.log('typeof(response.data)',typeof(response.data))
+            // console.log('userCart.length',userCart.length)
+            var product_index = [];
+                
+                    // var duplicate = false;
+                    for(var i = 0; i < userCart.length; i++){
+                        for(var j = 0; j < response.data.length; j++){
+                            if(j in product_index){
+                                continue
+                            }
+                        // if(duplicate){
+                        //     break
+                        // }
+                        console.log('i&j',i,j)
+                        var cartItem = userCart[i];
+                        var index = i;
+                    console.log('response.data[j].id',response.data[j]._id)
+                    var productDetail = response.data[j];
+                    console.log('productDetail',productDetail)
+                    if (userCart[i].id === productDetail._id) {
+                        
+                        response.data[index].quantity = userCart[i].quantity
+                        response.data[index].size = userCart[i].size
+                        response.data[index].color = userCart[i].color
+                        product_index.push(j)
+                        console.log(product_index)
+                        // duplicate = true;
                     }
-                })
-            })
+                    
+                }
+            }
+            
+            // userCart.forEach(cartItem => {
+            //     response.data.forEach((productDetail, index) => {
+            //         if (cartItem.id === productDetail._id) {
+            //             response.data[index].quantity = cartItem.quantity
+            //             response.data[index].size = cartItem.size
+            //             response.data[index].color = cartItem.color
+
+            //         }
+            //     })
+            // })
+            console.log('cart response.data',response.data)
             return response.data;
         });
 

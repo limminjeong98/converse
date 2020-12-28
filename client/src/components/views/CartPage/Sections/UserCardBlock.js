@@ -1,7 +1,7 @@
 import React from 'react'
 import "./UserCardBlock.css"
 function UserCardBlock(props) {
-
+    console.log(props.products);
     const renderCartImage = (images) => {
         if (images.length > 0) {
             let image = images[0]
@@ -13,6 +13,7 @@ function UserCardBlock(props) {
 
 
     const renderItems = () => (
+        
         props.products && props.products.map((product, index) => (
             <tr key={index}>
                 <td>
@@ -20,16 +21,20 @@ function UserCardBlock(props) {
                         src={renderCartImage(product.images)} />
                 </td>
                 <td>
-                    {product.quantity} EA
+                    {product.quantity ? product.quantity +' EA': 'not loaded'}
+                    {/* {product.quantity} EA */}
                 </td>
                 <td>
-                    $ {product.price}
+                    $ {product.price ? product.price: 'not loaded'}
+                    {/* $ {product.price} */}
                 </td>
                 <td>
-                    {product.size}
+                    {product.size ? product.size : 'not loaded'}
+                    {/* {product.size} */}
                 </td>
                 <td>
-                    {product.color}
+                    {product.color ? product.color : 'not loaded'}
+                    {/* {product.color} */}
                 </td>
                 <td>
                     <button onClick={() => props.removeItem(product._id)}>
@@ -38,6 +43,9 @@ function UserCardBlock(props) {
                 </td>
             </tr>
         ))
+            
+        
+        
     )
 
 
@@ -56,6 +64,7 @@ function UserCardBlock(props) {
                 </thead>
 
                 <tbody>
+                    
                     {renderItems()}
                 </tbody>
             </table>

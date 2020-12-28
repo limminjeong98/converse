@@ -123,26 +123,93 @@ router.get('/products_by_id', (req, res) => {
         //id=123123123,324234234,324234234 이거를 
         //productIds = ['123123123', '324234234', '324234234'] 이런식으로 바꿔주기
         let ids = req.query.id.split(',')
+        // console.log('ids',ids) => 5
         productIds = ids.map(item => {
+            console.log('item',item)
             return item
         })
 
     }
 
     //productId를 이용해서 DB에서  productId와 같은 상품의 정보를 가져온다.
+    
+    
 
     Product.find({ _id: { $in: productIds } })
         .populate('writer')
         .exec((err, product) => {
+            console.log(typeof(product))
             if (err) return res.status(400).send(err)
             return res.status(200).send(product)
         })
 
+    
+
+
+
+
 })
 
 
+router.get('/products_by_id_cart', (req, res) => {
+
+    let type = req.query.type
+    let productIds = req.query.id
+
+    if (type === "array") {
+        //id=123123123,324234234,324234234 이거를 
+        //productIds = ['123123123', '324234234', '324234234'] 이런식으로 바꿔주기
+        let ids = req.query.id.split(',')
+        // console.log('ids',ids) => 5
+        productIds = ids.map(item => {
+            console.log('item',item)
+            return item
+        })
+
+    }
+
+    //productId를 이용해서 DB에서  productId와 같은 상품의 정보를 가져온다.
+    var products = [];
+    for(var i = 0; i < productIds.length; i++){
+        // console.log('productIds[i]',productIds[i])
+        // console.log('i, productIds.length', i, productIds.length)
+        
+        Product.findOne({ _id: { $in: productIds[i] }})
+        .populate('writer')
+        .exec((err, product) => {
+            // console.log(err)
+            // console.log(product)
+            if(err){
+                return res.status(400).send(err)}
+            products.push(product)
+            // if(Number(i) === (Number(productIds.length) - 1) ){
+                if(Number(products.length) === Number(productIds.length) ){
+                console.log("in")
+                
+                // console.log('qq',products)
+                products = JSON.stringify(products)
+                
+                return res.status(200).send(products)
+            }
+            
+        })
+
+        
+    }
+    
+
+    // Product.find({ _id: { $in: productIds } })
+    //     .populate('writer')
+    //     .exec((err, product) => {
+    //         console.log(typeof(product))
+    //         if (err) return res.status(400).send(err)
+    //         return res.status(200).send(product)
+    //     })
+
+    
 
 
 
 
+})
 module.exports = router;

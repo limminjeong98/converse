@@ -85,7 +85,13 @@ router.post("/addToCart", auth, (req, res) => {
             let duplicate = false;
             userInfo.cart.forEach((item) => {
                 if (item.id === req.body.productId) {
-                    duplicate = true;
+                    if(item.color === req.body.color && item.size === req.body.size){
+                        
+                            duplicate = true;
+                        
+                        
+                    }
+                   
                 }
             })
 
