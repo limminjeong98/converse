@@ -2,7 +2,7 @@ import React, {useState} from 'react'
 import { Button, Select} from 'antd';
 import { useDispatch } from 'react-redux';
 import { addToCart } from '../../../../_actions/user_actions';
-
+const { Option } = Select;
 
 function ProductInfo(props) {
 
@@ -13,17 +13,23 @@ function ProductInfo(props) {
     const [Size, setSize] = useState('')
     const [Color, setColor] = useState('')
 
+
+    function handleChange(e) {
+        setSize(String(e));
+        console.log(e)
+      }
+
     const SelectSize = () => {
         if(props.detail.price != null){
             return (
                 <div>
-                <select name="Size" onChange={SelectSize}>
+                <Select defaultValue={sizes[0]} onChange={handleChange}>
                 {Object.values(sizes).map(
-                    item=> (
-                        <option value={item}>{item}</option>
+                    (item, index)=> (
+                        <Option value={item} key={index}>{item}</Option>
                     )
                 )}
-                </select>
+                </Select>
                 </div> 
             )
 
@@ -38,12 +44,13 @@ function ProductInfo(props) {
         if(props.detail.price != null){
             return (
                 <div>
-                <select name="color" onChange={SelectColor}>
+                <Select defaultValue={colors[0]} onChange={handleChange}>
                 {Object.values(colors).map(
-                    item=>
-                    <option value={item}>{item}</option>
+                    (item, index)=> (
+                        <Option value={item} key={index}>{item}</Option>
+                    )
                 )}
-                </select>
+                </Select>
                 </div> 
             )
         }else{
