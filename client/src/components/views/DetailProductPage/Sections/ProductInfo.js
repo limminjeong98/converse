@@ -13,27 +13,16 @@ function ProductInfo(props) {
     const [Size, setSize] = useState('')
     const [Color, setColor] = useState('')
 
-    const sizeChangeHandler = (event) => {
-        setSize(event.currentTarget.value.toString())
-    }
-
-    const colorChangeHandler = (event) => {
-        setColor(event.currentTarget.value.toString())
-    }
-
     const SelectSize = () => {
         if(props.detail.price != null){
             return (
                 <div>
-                <select name="size" onChange={sizeChangeHandler}>
+                <select name="Size" onChange={SelectSize}>
                 {Object.values(sizes).map(
-                    item=>
-                    <option value={item}>{item}</option>
+                    item=> (
+                        <option value={item}>{item}</option>
+                    )
                 )}
-                {/* {Object(sizes).map(
-                    item =>
-                    <option key={item.index} value={item.value}>{item.value}</option>
-                )} */}
                 </select>
                 </div> 
             )
@@ -49,8 +38,7 @@ function ProductInfo(props) {
         if(props.detail.price != null){
             return (
                 <div>
-                <select name="color" onChange={colorChangeHandler}>
-                
+                <select name="color" onChange={SelectColor}>
                 {Object.values(colors).map(
                     item=>
                     <option value={item}>{item}</option>
@@ -89,12 +77,8 @@ function ProductInfo(props) {
             <SelectColor />
             <h2>사이즈</h2>
             <SelectSize />
-            {/* <h2 style={{color:`${props.detail.colors}`}}>{props.detail.colors}</h2> */}
             <h3>{`${props.detail.price}원`}</h3>
-            
-            
-            <ul>
-            </ul>
+            <p>{props.detail.description}</p>
             <br />
             <br />
             <br />

@@ -33,7 +33,7 @@ function CheckBox(props) {
             <span style={{ padding:'0 8px'}} >{value.name}</span>
         </React.Fragment>
     ))
-    console.log(props);
+    console.log(props.list);
     return (
         <div>
             <Collapse defaultActiveKey={['1']} >
