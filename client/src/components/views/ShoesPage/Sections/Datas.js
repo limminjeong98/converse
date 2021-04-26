@@ -1,24 +1,13 @@
-const categories = [
+const category = [
     {
         "_id": 1,
-        "name": "Outer"
+        "name": "Sneakers"
     },
     {
         "_id": 2,
-        "name": "Top"
+        "name": "Mule"
     },
-    {
-        "_id": 3,
-        "name": "Bottom"
-    },
-    {
-        "_id": 4,
-        "name": "Shoes"
-    },
-    {
-        "_id": 5,
-        "name": "Bag"
-    },
+    
 
 ]
 
@@ -54,6 +43,6 @@ const price = [
 
 
 export {
-    categories,
+    category,
     price
 }

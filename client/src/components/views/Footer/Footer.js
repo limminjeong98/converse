@@ -1,23 +1,35 @@
-import React from 'react'
-import { FacebookOutlined, InstagramFilled, InstagramOutlined } from '@ant-design/icons';
+import React from "react";
+import {
+  FacebookOutlined,
+  InstagramFilled,
+  InstagramOutlined,
+} from "@ant-design/icons";
 
 function Footer() {
-    return (
-        
-        <div style={{
-            height: '80px', display: 'flex',
-            flexDirection: 'column', alignItems: 'center',
-            justifyContent: 'center', fontSize:'1rem',
-            backgroundColor:"#02343F"
-        }}>
-           <span style={{color:'#F0EDCC'}}>Developed by Seungryeol & Minjeong</span>
-           <div style={{display:'flex'}}>
-           <FacebookOutlined style={{color:'#4267B2',padding:'10px'}}/>
-           <InstagramOutlined style={{color:'red', padding:'10px'}}/>
-           </div>
-
-        </div>
-    )
+  return (
+    <div
+      style={{
+        height: "80px",
+        bottom: 0,
+        alignItems: "left",
+        justifyContent: "center",
+        fontSize: "0.8rem",
+        backgroundColor: "#0E1106",
+        padding: "1rem",
+      }}
+    >
+      <div style={{ color: "#C8C8C7" }}>
+        <br />
+        Company Info: CONVERSE Korea ⓒ2021
+        <br />
+        {/* Developer Info: Minjeong Lim
+                <br /> */}
+        Developer Contact: limminjeong98@naver.com
+        <br />
+        <br />
+      </div>
+    </div>
+  );
 }
 
-export default Footer
+export default Footer;

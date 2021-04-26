@@ -19,9 +19,15 @@ function LoginPage(props) {
     setRememberMe(!rememberMe)
   };
 
+  const goRegisterPage = () => {
+    props.history.push('/register')
+  };
+
   const initialEmail = localStorage.getItem("rememberMe") ? localStorage.getItem("rememberMe") : '';
 
   return (
+    <div>
+    
     <Formik
       initialValues={{
         email: initialEmail,
@@ -79,14 +85,18 @@ function LoginPage(props) {
           handleReset,
         } = props;
         return (
-          <div className="app">
-            <Title level={3} style={{marginTop:'-100px'}}>LION8</Title>
-            <form onSubmit={handleSubmit} style={{ width: '350px' }}>
+          <div className="app" style={{ display: 'flex', alignItems: 'center', marginTop: '5rem', flexDirection: 'row'}}>
+            <div style={{ width: '65rem' }}>
+              <img style={{ width: '50rem', marginLeft: '3rem' }} src={`http://localhost:5000/uploads/loginimage.jpg`} />
+            </div>
+            
+            <div style={{ marginRight: '3rem' }}>
+            <form onSubmit={handleSubmit} style={{ display: 'inline-block', width: '350px', marginTop: '1rem' }}>
               <Form.Item required>
                 <Input
-                  id="email"
+                  id="email" bordered= "false"
                   prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />}
-                  placeholder="Enter your email"
+                  placeholder="EMAIL"
                   type="email"
                   value={values.email}
                   onChange={handleChange}
@@ -104,7 +114,7 @@ function LoginPage(props) {
                 <Input
                   id="password"
                   prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />}
-                  placeholder="Enter your password"
+                  placeholder="PASSWORD"
                   type="password"
                   value={values.password}
                   onChange={handleChange}
@@ -123,22 +133,37 @@ function LoginPage(props) {
               )}
 
               <Form.Item>
-                <Checkbox id="rememberMe" onChange={handleRememberMe} checked={rememberMe} >Remember me</Checkbox>
-                <a className="login-form-forgot" href="/reset_user" style={{ float: 'right' , color:'#02343F',fontWeight:'bold' }}>
-                  forgot password
-                  </a>
+                <Checkbox id="rememberMe" onChange={handleRememberMe} checked={rememberMe} style={{ color: '#C8C8C7' }}>Remember me</Checkbox>
+                <a className="login-form-forgot" href="/reset_user" style={{ float: 'right' , color:'#C8C8C7' }}>
+                  Forgot password?
+                </a>
                 <div>
-                  <Button type="primary" htmlType="submit" className="login-form-button" style={{ minWidth: '100%', border:'3px solid #02343F' }} disabled={isSubmitting} onSubmit={handleSubmit}>
-                    Login
-                </Button>
+                  {/* <Button type="primary" htmlType="submit" className="login-form-button" style={{ minWidth: '100%', border:'3px solid #02343F' }} disabled={isSubmitting} onSubmit={handleSubmit}>
+                    SIGN IN
+                  </Button> */}
+                  <button htmlType="submit" style={{ minWidth: '100%', border:'1px solid #707070', color: '#C8C8C7', backgroundColor: '#0E1106' }} disabled={isSubmitting} onSubmit={handleSubmit}>
+                    SIGN IN
+                  </button>
                 </div>
-                Or <a href="/register" style={{ color:'#02343F', fontWeight:'bold'}}>register now!</a>
-              </Form.Item>
+                
+                <div style={{ marginTop: '1rem', color: '#C8C8C7', textAlign: 'center' }}>
+                If you don't have a membership
+                </div> 
+                <button type="button" style={{ minWidth: '100%', border:'1px solid #707070', color: '#C8C8C7', backgroundColor: '#0E1106' }} onClick={goRegisterPage} >
+                    REGISTER
+                </button>
+                
+                {/* <a href="/register" style={{ color:'#02343F', fontWeight:'bold'}}>register now!</a> */}
+                            
+                </Form.Item>
             </form>
+            </div>
+
           </div>
         );
       }}
     </Formik>
+    </div>
   );
 };
 

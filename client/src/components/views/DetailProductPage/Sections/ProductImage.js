@@ -23,7 +23,7 @@ function ProductImage(props) {
 
     return (
         <div>
-            <ImageGallery items={Images} />
+            <ImageGallery items={Images} style={{ width: '100px'}}/>
         </div>
     )
 }
